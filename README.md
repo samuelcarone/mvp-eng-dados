@@ -1,67 +1,41 @@
-# 🧪 MVP - Engenharia de Dados (PUC-Rio)
+# MVP – Engenharia de Dados
 
-Este repositório contém todas as etapas do MVP da disciplina de Engenharia de Dados da PUC-Rio. O projeto foi desenvolvido na plataforma Databricks Community Edition e envolve a construção de um pipeline de dados com camadas **Bronze**, **Silver** e **Gold**, modelagem em estrela, criação de tabelas no metastore, consultas SQL com JOINs e análise dos dados econômicos brasileiros (IPCA, SELIC e IBOVESPA).
+Este projeto desenvolve um pipeline de dados para analisar a correlação entre IPCA, SELIC e IBOVESPA nos últimos 15 anos.
 
----
+## Objetivo
+Implementar um pipeline de dados baseado nas camadas BRONZE, SILVER e GOLD no Databricks, realizar modelagem em estrela e aplicar análises estatísticas.
 
-## 📁 Estrutura das Camadas
+## Estrutura do Projeto
 
-- **Bronze**: Armazenamento bruto dos dados CSV (IPCA, SELIC, IBOV).
-- **Silver**: Junção e tratamento dos dados.
-- **Gold**: Dados analíticos finais utilizados para visualizações e exportações.
+- **Camada BRONZE:** Dados brutos carregados de arquivos CSV.
+- **Camada SILVER:** Dados tratados, padronizados e limpos.
+- **Camada GOLD:** Dados organizados em tabelas Delta registradas no metastore.
+- **Modelagem Estrela:** Fato e dimensões para análise econômica.
+- **Consultas SQL:** JOINs entre tabelas fato e dimensão.
+- **Análises Estatísticas:** Correlação e regressão linear.
+- **Visualizações:** Gráficos gerados para análise de tendência.
 
----
+## Arquivos Principais
 
-## 🖼️ Prints - Item 7: Consultas SQL com JOINs
+- [`Final_MVP.ipynb`](./Final_MVP.ipynb): Notebook único contendo todo o pipeline e as análises.
 
-### ✅ 1. Cluster Ativo
-📎 ![Cluster Ativo](print_cluster.png)
+## Prints
 
-### ✅ 2. Upload dos Arquivos CSV
-📎 ![Upload CSV](print_upload_csv.png)
+Prints dos principais resultados estão disponíveis na pasta [`prints/`](./prints/):
+- Criação da camada GOLD
+- Consultas SQL com JOINs
+- Matriz de Correlação
+- Gráfico da Regressão Linear
 
-### ✅ 3. Execução da Camada Bronze
-📎 ![Execução Bronze](print_bronze_exec.png)
+## Como Rodar
 
-### ✅ 4. Execução da Camada Silver
-📎 ![Execução Silver](print_silver_exec.png)
+1. Subir os arquivos de dados no Databricks.
+2. Executar o notebook `Final_MVP.ipynb`.
+3. Validar a criação das camadas e realizar as análises.
 
-### ✅ 5. Criação das Tabelas SQL
-📎 ![Tabelas SQL](print_sql_tabelas.png)
+## Observações
 
-### ✅ 6. Tabela `fato_economia` Populada
-📎 ![Tabela fato_economia](print_fato_economia.png)
+- Projeto desenvolvido no **Databricks Community Edition**.
+- Banco de dados: `mvp_economia`.
+- Linguagens: **Python**, **SQL** e **Markdown**.
 
-### ✅ 7. Resultado da Consulta com JOIN
-📎 ![Resultado JOIN](print_sql_join_resultado.png)
-
-### ✅ 8. Matriz de Correlação (Análise GOLD)
-📎 ![Matriz de Correlação](print_gold_analise.png)
-
----
-
-## 📊 Item 8 – Análise com SQL
-
-Consultas SQL foram realizadas diretamente sobre as tabelas do metastore no Databricks. As análises incluem médias, somas, variações e destaques por ano e mês.
-
-### 📎 Prints:
-- `print_analise_medias_anuais.png`
-- `print_analise_soma_mensal.png`
-- `print_analise_maior_selic.png`
-- `print_analise_variacao_ibov.png`
-
----
-
-## 📦 Item 9 – Exportação Final da Camada GOLD
-
-Nesta etapa, os dados tratados da camada GOLD foram exportados em formato `.csv` a partir da tabela `economia_brasileira` criada no metastore.
-
-🔗 [Clique aqui para baixar o arquivo gold_economia.csv](https://community.cloud.databricks.com/files/gold_economia.csv)
-
-📎 ![Exportação GOLD](print_exportacao_gold.png)
-
----
-
-## ✅ Conclusão
-
-Todas as etapas do projeto foram concluídas com sucesso, utilizando práticas recomendadas de engenharia de dados, consultas SQL, e organização em camadas. O pipeline foi desenvolvido 100% na nuvem, utilizando Databricks e arquivos públicos acessíveis via GitHub.
